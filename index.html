@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Workout Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Weekly Workout Tracker</h1>
+        <nav>
+            <a href="index.html">Dashboard</a>
+        </nav>
+        <button id="logout-button">Logout</button> 
+    </header>
+    
+    <main>
+
+<!-- PT Assessment Section -->
+<section id="profile-section" class="profile-section">
+    <h2>Student Profile</h2>
+    <div id="profile-info">
+        <p><strong>First Name:</strong> <span id="first-name">John</span></p>
+        <p><strong>Last Name:</strong> <span id="last-name">Doe</span></p>
+        <p><strong>Agency Name:</strong> <span id="agency-name">City Police Dept</span></p>
+        <p><strong>Class Name:</strong> <span id="class-name">Peace Officer Basic</span></p>
+    </div>
+ <!-- Workout Time Tracking -->
+ <h3>Workout Time Tracking</h3>
+ <div id="workout-time-info">
+     <p><strong>Personal Workout Time:</strong> <span id="personal-time">0 hours</span> / <span id="required-personal-time">32 hours</span></p>
+     <p><strong>Team Workout Time:</strong> <span id="team-time">0 hours</span> / <span id="required-team-time">12 hours</span></p>
+ </div>
+    <!-- PT Assessment Tabs -->
+    <h3>PT Assessment Results</h3>
+    <div class="tabs">
+        <button class="tab-btn active" data-assessment="initial">Initial Assessment</button>
+        <button class="tab-btn" data-assessment="mid">Mid Assessment</button>
+        <button class="tab-btn" data-assessment="final">Final Assessment</button>
+    </div>
+
+    <!-- PT Assessment Data -->
+    <div id="pt-assessment-data">
+        <div id="initial" class="assessment-content">
+            <p><strong>Sit-ups in 60 seconds:</strong> <span id="initial-situps">45</span></p>
+            <p><strong>Push-ups in 60 seconds:</strong> <span id="initial-pushups">30</span></p>
+            <p><strong>Mile and a half run time:</strong> <span id="initial-run-time">12:45</span></p>
+            <p><strong>Weight:</strong> <span id="initial-weight">180 lbs</span></p>
+        </div>
+
+        <div id="mid" class="assessment-content" style="display: none;">
+            <p><strong>Sit-ups in 60 seconds:</strong> <span id="mid-situps">50</span></p>
+            <p><strong>Push-ups in 60 seconds:</strong> <span id="mid-pushups">35</span></p>
+            <p><strong>Mile and a half run time:</strong> <span id="mid-run-time">12:30</span></p>
+            <!-- No weight tracking in Mid assessment -->
+        </div>
+
+        <div id="final" class="assessment-content" style="display: none;">
+            <p><strong>Sit-ups in 60 seconds:</strong> <span id="final-situps">55</span></p>
+            <p><strong>Push-ups in 60 seconds:</strong> <span id="final-pushups">40</span></p>
+            <p><strong>Mile and a half run time:</strong> <span id="final-run-time">12:15</span></p>
+            <!-- No weight tracking in Final assessment -->
+        </div>
+    </div>
+</section>
+
+
+        <h2>Week 1</h2>
+        <section id="workout-days">
+            <!-- Monday -->
+            <div class="day-section calendar-block">
+                <h3 class="day-header">Monday <span class="day-date" id="monday-date"></span></h3>
+                <div class="day-content">
+                    <h4>Overall Workout Type</h4>
+                    <label for="monday-overall-type">Select Workout Type:</label>
+                    <select id="monday-overall-type">
+                        <option value="personal">Personal</option>
+                        <option value="team">Team</option>
+                    </select>
+                    <h4>Weight Training</h4>
+                    <label for="monday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="monday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                                                        </tr>
+                        </thead>
+                        <tbody id="monday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Monday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="monday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Monday">Add Cardio</button>
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="day-section calendar-block">
+                <h3 class="day-header">Tuesday <span class="day-date" id="tuesday-date"></span></h3>
+                <div class="day-content">
+                    <h4>Overall Workout Type</h4>
+                    <label for="tuesday-overall-type">Select Workout Type:</label>
+                    <select id="tuesday-overall-type">
+                        <option value="personal">Personal</option>
+                        <option value="team">Team</option>
+                    </select>
+                    <h4>Weight Training</h4>
+                    <label for="tuesday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="tuesday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tuesday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Tuesday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tuesday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Tuesday">Add Cardio</button>
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="day-section calendar-block">
+                <h3 class="day-header">Wednesday <span class="day-date" id="wednesday-date"></span></h3>
+                <div class="day-content">
+                    <h4>Overall Workout Type</h4>
+                    <label for="wednesday-overall-type">Select Workout Type:</label>
+                    <select id="wednesday-overall-type">
+                        <option value="personal">Personal</option>
+                        <option value="team">Team</option>
+                    </select>
+                    <h4>Weight Training</h4>
+                    <label for="wednesday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="wednesday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wednesday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Wednesday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wednesday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Wednesday">Add Cardio</button>
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="day-section calendar-block">
+                <h3 class="day-header">Thursday <span class="day-date" id="thursday-date"></span></h3>
+                <div class="day-content">
+                    <h4>Overall Workout Type</h4>
+                    <label for="thursday-overall-type">Select Workout Type:</label>
+                    <select id="thursday-overall-type">
+                        <option value="personal">Personal</option>
+                        <option value="team">Team</option>
+                    </select>
+                    <h4>Weight Training</h4>
+                    <label for="thursday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="thursday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="thursday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Thursday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="thursday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Thursday">Add Cardio</button>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="day-section calendar-block">
+                <h3 class="day-header">Friday <span class="day-date" id="friday-date"></span></h3>
+                <div class="day-content">
+                    <h4>Overall Workout Type</h4>
+                    <label for="friday-overall-type">Select Workout Type:</label>
+                    <select id="friday-overall-type">
+                        <option value="personal">Personal</option>
+                        <option value="team">Team</option>
+                    </select>
+                    <h4>Weight Training</h4>
+                    <label for="friday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="friday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="friday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Friday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="friday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Friday">Add Cardio</button>
+                </div>
+            </div>
+
+            <!-- Weekend Section -->
+            <div class="day-section calendar-block">
+                <h3 class="day-header">Weekend <span class="day-date" id="weekend-date"></span></h3>
+                <div class="day-content">
+
+                    <h4>Saturday</h4>
+                    <label for="saturday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="saturday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="saturday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Saturday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="saturday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Saturday">Add Cardio</button>
+
+                    <h4>Sunday</h4>
+                    <label for="sunday-duration">Total Workout Duration (minutes):</label>
+                    <input type="number" id="sunday-duration" placeholder="Duration" required>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Sets x Reps</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sunday-body">
+                            <tr>
+                                <td><input type="text" class="exercise-name" placeholder="Exercise Name" required></td>
+                                <td><input type="text" class="sets-reps" placeholder="Sets x Reps" required></td>
+                                <td><input type="number" class="weight" placeholder="Weight (lbs)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-row" data-day="Sunday">Add Exercise</button>
+
+                    <h4>Cardio</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cardio Type</th>
+                                <th>Distance (miles)</th>
+                                <th>Time (minutes)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sunday-cardio-body">
+                            <tr>
+                                <td><input type="text" class="cardio-type" placeholder="Cardio Type" required></td>
+                                <td><input type="number" class="cardio-distance" placeholder="Distance (miles)" required></td>
+                                <td><input type="number" class="cardio-time" placeholder="Time (minutes)" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="add-cardio-row" data-day="Sunday">Add Cardio</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes Section for the Week -->
+        <section id="weekly-notes">
+            <h3>Weekly Notes</h3>
+            <label for="notes">Notes/Comments:</label>
+            <textarea id="notes" placeholder="Add any notes or reflections on your workouts for this week..."></textarea>
+        </section>
+
+        <button type="button" id="submit-all-workouts">Submit Week 1 Workouts</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

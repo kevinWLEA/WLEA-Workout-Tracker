@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create New Student</h1>
+        <button id="back-to-dashboard">Back to Dashboard</button>
+    </header>
+
+    <main>
+        <section id="create-student">
+            <form id="student-form">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                <label for="agency-name">Agency Name:</label>
+                <input type="text" id="agency-name" name="agency-name" required>
+
+                <label for="class-name">Class Name:</label>
+                <select id="class-name" name="class-name" required>
+                    <!-- Class options will be dynamically populated -->
+                </select>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Create Student</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="create-student.js"></script>
+</body>
+</html>
