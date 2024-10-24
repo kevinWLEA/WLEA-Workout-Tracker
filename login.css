@@ -6,34 +6,12 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    height: 100vh;
-    overflow: hidden; /* Prevent scrollbars */
+    font-family: 'Arial', sans-serif; /* Clean and modern font */
+    background-color: #f7f9fc; /* Light gray background */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Animated Gradient Background */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(270deg, #ff7eb3, #ff758c, #ff878d, #ffcc70);
-    background-size: 600% 600%;
-    animation: gradient-animation 8s ease infinite;
-    z-index: -1; /* Place behind content */
-}
-
-/* Animation keyframes for smooth gradient shifting */
-@keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    height: 100vh; /* Full viewport height */
 }
 
 header {
@@ -42,79 +20,75 @@ header {
     left: 0;
     right: 0;
     padding: 20px;
-    background-color: rgba(52, 58, 64, 0.8); /* Slight transparency */
+    background-color: #343a40; /* Darker header color */
     color: white;
     text-align: center;
-    z-index: 1; /* Keep above the background */
 }
 
 h1 {
     margin-bottom: 20px;
-    font-size: 24px;
-    color: white;
+    font-size: 24px; /* Slightly larger title */
 }
 
 main {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    padding: 40px 20px;
-    width: 90%;
-    max-width: 400px;
-    z-index: 1;
-    position: relative;
+    background-color: white; /* White background for the form */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 40px 20px; /* Spacing inside the form */
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Maximum width for larger screens */
 }
 
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Column layout for form elements */
 }
 
 input {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+    width: 100%; /* Full width input fields */
+    padding: 15px; /* Comfortable padding */
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light border color */
+    border-radius: 5px; /* Rounded edges */
+    font-size: 16px; /* Standard font size */
+    transition: border-color 0.3s; /* Smooth transition */
 }
 
 input:focus {
-    border-color: #007bff;
-    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
 }
 
 button {
-    padding: 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    padding: 15px; /* Comfortable button padding */
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded button edges */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Standard font size */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 #error-message, #success-message {
-    margin-top: 10px;
-    color: red;
+    margin-top: 10px; /* Space above messages */
+    color: red; /* Error message color */
 }
 
 p {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 20px; /* Space above paragraphs */
+    text-align: center; /* Centered text */
 }
 
 a {
-    color: #007bff;
-    text-decoration: none;
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover */
 }
