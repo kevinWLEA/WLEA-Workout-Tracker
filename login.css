@@ -1,81 +1,92 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f0f4f8; /* Light background for a soft look */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Clean and modern font */
+    background-color: #f7f9fc; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
 }
 
 header {
-    background-color: #007BFF; /* Bootstrap primary color */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: #343a40; /* Darker header color */
     color: white;
-    padding: 20px 0;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 h1 {
-    margin: 0;
+    margin-bottom: 20px;
+    font-size: 24px; /* Slightly larger title */
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+    background-color: white; /* White background for the form */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 40px 20px; /* Spacing inside the form */
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Maximum width for larger screens */
 }
 
 form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px; /* Rounded corners for a modern touch */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
-    width: 300px; /* Fixed width for the form */
-    text-align: center; /* Center the text */
+    display: flex;
+    flex-direction: column; /* Column layout for form elements */
 }
 
 input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: border-color 0.3s; /* Smooth transition on focus */
+    width: 100%; /* Full width input fields */
+    padding: 15px; /* Comfortable padding */
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light border color */
+    border-radius: 5px; /* Rounded edges */
+    font-size: 16px; /* Standard font size */
+    transition: border-color 0.3s; /* Smooth transition */
 }
 
 input:focus {
-    border-color: #007BFF; /* Change border color on focus */
+    border-color: #007bff; /* Change border color on focus */
     outline: none; /* Remove default outline */
 }
 
 button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    padding: 15px; /* Comfortable button padding */
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded button edges */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Standard font size */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 #error-message, #success-message {
-    margin-top: 10px;
-    color: red;
+    margin-top: 10px; /* Space above messages */
+    color: red; /* Error message color */
 }
 
 p {
-    margin-top: 20px;
+    margin-top: 20px; /* Space above paragraphs */
+    text-align: center; /* Centered text */
 }
 
 a {
-    color: #007BFF; /* Link color */
+    color: #007bff; /* Link color */
     text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold links for emphasis */
 }
 
 a:hover {
