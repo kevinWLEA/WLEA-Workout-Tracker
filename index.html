@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Workout Tracker</h1>
+        <button id="logout-button">Logout</button>
+    </header>
+    
+    <main>
+        <div id="success-message" style="display: none; color: green; margin-top: 10px;">Workout saved successfully!</div>
+
+        <section>
+            <h2>Weekly Workout Log</h2>
+            <div class="day">
+                <button class="collapsible">Monday <span id="date-monday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="monday-workouts"></div>
+                    <button id="add-monday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="monday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="monday-cardio-time" placeholder="Time">
+                    <label for="monday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="monday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="monday">Submit Monday</button>
+                </div>
+            </div>
+            <div class="day">
+                <button class="collapsible">Tuesday <span id="date-tuesday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="tuesday-workouts"></div>
+                    <button id="add-tuesday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="tuesday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="tuesday-cardio-time" placeholder="Time">
+                    <label for="tuesday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="tuesday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="tuesday">Submit Tuesday</button>
+                </div>
+            </div>
+            <div class="day">
+                <button class="collapsible">Wednesday <span id="date-wednesday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="wednesday-workouts"></div>
+                    <button id="add-wednesday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="wednesday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="wednesday-cardio-time" placeholder="Time">
+                    <label for="wednesday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="wednesday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="wednesday">Submit Wednesday</button>
+                </div>
+            </div>
+            <div class="day">
+                <button class="collapsible">Thursday <span id="date-thursday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="thursday-workouts"></div>
+                    <button id="add-thursday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="thursday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="thursday-cardio-time" placeholder="Time">
+                    <label for="thursday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="thursday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="thursday">Submit Thursday</button>
+                </div>
+            </div>
+            <div class="day">
+                <button class="collapsible">Friday <span id="date-friday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="friday-workouts"></div>
+                    <button id="add-friday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="friday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="friday-cardio-time" placeholder="Time">
+                    <label for="friday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="friday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="friday">Submit Friday</button>
+                </div>
+            </div>
+            <div class="day">
+                <button class="collapsible">Saturday <span id="date-saturday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="saturday-workouts"></div>
+                    <button id="add-saturday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="saturday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="saturday-cardio-time" placeholder="Time">
+                    <label for="saturday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="saturday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="saturday">Submit Saturday</button>
+                </div>
+            </div>
+            <div class="day">
+                <button class="collapsible">Sunday <span id="date-sunday" class="date"></span></button>
+                <div class="content">
+                    <h3>Weight Training</h3>
+                    <div id="sunday-workouts"></div>
+                    <button id="add-sunday-exercise">Add Exercise</button>
+                    <h3>Cardio</h3>
+                    <label for="sunday-cardio-time">Time (minutes):</label>
+                    <input type="number" id="sunday-cardio-time" placeholder="Time">
+                    <label for="sunday-cardio-distance">Distance (miles):</label>
+                    <input type="number" id="sunday-cardio-distance" placeholder="Distance">
+                    <button class="submit-day" data-day="sunday">Submit Sunday</button>
+                </div>
+            </div>
+            <button id="submit-week">Submit Weekly Log</button>
+            <div id="notes-section">
+                <h3>Notes</h3>
+                <textarea id="weekly-notes" placeholder="Add your notes here..."></textarea>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

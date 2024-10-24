@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles-admin.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <button id="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <!-- Section for creating classes -->
+        <section id="create-class">
+            <h2>Create New Class</h2>
+            <form id="class-form">
+                <label for="class-name">Class Name:</label>
+                <input type="text" id="class-name" name="class-name" required>
+                <button type="submit">Create Class</button>
+            </form>
+        </section>
+
+        <!-- Section for selecting and viewing students by class -->
+        <section id="class-list">
+            <h2>View Students by Class</h2>
+            <select id="class-select">
+                <option value="" selected disabled>Select a class</option>
+                <!-- Class options will be dynamically populated -->
+            </select>
+        </section>
+
+        <!-- Section for creating user accounts -->
+        <section id="create-account">
+            <h2>Create User Account</h2>
+            <form id="create-account-form">
+                <input type="text" id="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <select id="role">
+                    <option value="student">Student</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button type="submit">Create Account</button>
+            </form>
+            <div id="error-message"></div>
+            <div id="success-message"></div>
+        </section>
+    </main>
+
+    <script src="admin-dashboard.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
