@@ -1,3 +1,28 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAsetUZT2W12nt8Fx0TJC4okuht1KXB-I0",
+      
+          authDomain: "wlea-workout-tracker-da7f4.firebaseapp.com",
+      
+          projectId: "wlea-workout-tracker-da7f4",
+      
+          storageBucket: "wlea-workout-tracker-da7f4.appspot.com",
+      
+          messagingSenderId: "129716869185",
+      
+          appId: "1:129716869185:web:bc5485ea1be43aa2b90ec0",
+      
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
 // Get today's date and display it next to each day
 const dateElements = document.querySelectorAll('.date');
 dateElements.forEach(dateElement => {
