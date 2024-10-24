@@ -26,3 +26,13 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             document.getElementById('error-message').textContent = 'Error: ' + errorMessage;
         });
 });
+
+// Logout function (for pages where the user is already logged in)
+document.getElementById('logout-button')?.addEventListener('click', function() {
+    auth.signOut().then(() => {
+        // Redirect to the login page after logging out
+        window.location.href = 'login.html';
+    }).catch((error) => {
+        console.error('Error logging out:', error);
+    });
+});
