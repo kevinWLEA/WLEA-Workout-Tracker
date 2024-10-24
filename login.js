@@ -25,4 +25,15 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             const errorMessage = error.message;
             document.getElementById('error-message').textContent = 'Error: ' + errorMessage;
         });
+
+        // Logout function
+document.getElementById('logout-button').addEventListener('click', function() {
+    firebase.auth().signOut().then(() => {
+        // Redirect to the login page after logging out
+        window.location.href = 'login.html';
+    }).catch((error) => {
+        console.error('Error logging out:', error);
+    });
+});
+
 });

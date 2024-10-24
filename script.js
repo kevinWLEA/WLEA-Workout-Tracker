@@ -81,6 +81,17 @@ document.querySelectorAll('.add-exercise-button').forEach(button => {
         }
     });
 
+    // Logout function
+document.getElementById('logout-button').addEventListener('click', function() {
+    firebase.auth().signOut().then(() => {
+        // Redirect to the login page after logging out
+        window.location.href = 'login.html';
+    }).catch((error) => {
+        console.error('Error logging out:', error);
+    });
+});
+
+
     // Change workout type visibility
     const workoutTypeSelect = document.querySelectorAll('.workout-type');
     workoutTypeSelect.forEach(select => {
