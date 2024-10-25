@@ -19,47 +19,50 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // Handle login form submission
-document.getElementById('login-form').addEventListener('submit', function(event) {
+document.getElementById('login-form').addEventListener('submit', async function(event) {
     event.preventDefault();
+    console.log("Login form submitted");
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
     // Create a dummy email from the username
     const email = `${username}@dummy.com`;
+    console.log("Generated email:", email);
 
-    // Sign in the user
-    signInWithEmailAndPassword(auth, email, password)
-        .then(async (userCredential) => {
-            const user = userCredential.user;
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log("User signed in with UID:", user.uid);
 
-            // Retrieve user role from Firestore
-            const userDocRef = doc(db, "users", user.uid);
-            const userDoc = await getDoc(userDocRef);
+        // Retrieve user role from Firestore
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+        
+        if (userDoc.exists()) {
+            const userData = userDoc.data();
+            console.log("User role retrieved:", userData.role);
 
-            if (userDoc.exists()) {
-                const userData = userDoc.data();
-                
-                // Check the role and redirect accordingly
-                if (userData.role === "admin") {
-                    window.location.href = 'admin.html'; // Redirect to admin dashboard
-                } else {
-                    window.location.href = 'index.html'; // Redirect to student dashboard
-                }
+            // Check the role and redirect accordingly
+            if (userData.role === "admin") {
+                window.location.href = 'admin.html';
             } else {
-                console.error("No such user document!");
+                window.location.href = 'index.html';
             }
-        })
-        .catch((error) => {
-            const errorMessage = error.message;
-            document.getElementById('error-message').textContent = 'Error: ' + errorMessage;
-        });
+        } else {
+            console.error("User document not found in Firestore.");
+            document.getElementById('error-message').textContent = 'User data not found.';
+        }
+    } catch (error) {
+        console.error("Login error:", error.message);
+        document.getElementById('error-message').textContent = 'Error: ' + error.message;
+    }
 });
 
 // Logout function
-document.getElementById('logout-button').addEventListener('click', function() {
+document.getElementById('logout-button')?.addEventListener('click', function() {
     signOut(auth).then(() => {
-        // Redirect to the login page after logging out
+        console.log("User logged out");
         window.location.href = 'login.html';
     }).catch((error) => {
         console.error('Error logging out:', error);
