@@ -1,9 +1,9 @@
-// Import the functions you need from the SDKs you need
+// Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAsetUZT2W12nt8Fx0TJC4okuht1KXB-I0",
     authDomain: "wlea-workout-tracker-da7f4.firebaseapp.com",
@@ -16,12 +16,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);  // Firebase Auth instance
+const auth = getAuth(app);
 
 // Logout function
 document.getElementById('logout-button').addEventListener('click', function() {
-    auth.signOut().then(() => {
-        // Redirect to the login page after logging out
+    signOut(auth).then(() => {
         window.location.href = 'login.html';
     }).catch((error) => {
         console.error('Error logging out:', error);
@@ -40,26 +39,46 @@ for (let i = 0; i < collapsibles.length; i++) {
     collapsibles[i].addEventListener("click", function() {
         this.classList.toggle("active");
         const content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
+        content.style.display = content.style.display === "block" ? "none" : "block";
     });
 }
 
 // Handle workout form submission
 document.querySelectorAll('.workout-form').forEach(form => {
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', async function(event) {
         event.preventDefault();
-        // Logic to save workout data here...
 
-        // Show saved indicator
-        const saveIndicator = this.querySelector('.save-indicator');
-        saveIndicator.style.display = 'inline';
-        setTimeout(() => {
-            saveIndicator.style.display = 'none';
-        }, 2000);
+        const workoutType = form.querySelector('.workout-type').value;
+        let workoutData = { date: new Date().toISOString() };
+
+        // Collect data based on workout type
+        if (workoutType === 'weight') {
+            workoutData = {
+                ...workoutData,
+                exercise: form.querySelector('input[placeholder="Exercise"]').value,
+                sets: parseInt(form.querySelector('input[placeholder="Sets"]').value),
+                reps: parseInt(form.querySelector('input[placeholder="Reps"]').value),
+                weight: parseFloat(form.querySelector('input[placeholder="Weight"]').value),
+            };
+        } else if (workoutType === 'cardio') {
+            workoutData = {
+                ...workoutData,
+                time: parseInt(form.querySelector('input[placeholder="Time (minutes)"]').value),
+                distance: parseFloat(form.querySelector('input[placeholder="Distance (miles)"]').value),
+            };
+        }
+
+        // Save workout data to Firestore
+        try {
+            await addDoc(collection(db, "workouts"), workoutData);
+            const saveIndicator = form.querySelector('.save-indicator');
+            saveIndicator.style.display = 'inline';
+            setTimeout(() => {
+                saveIndicator.style.display = 'none';
+            }, 2000);
+        } catch (error) {
+            console.error("Error saving workout data:", error);
+        }
     });
 });
 
